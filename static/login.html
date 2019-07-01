@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Movie Network</h5>
+        <%
+            if (context["is_logged_in"] == "0") {
+        %>
+        <div class="btn-group">
+            <a class="btn btn-outline-primary" href="/login">Login</a>
+            <a class="btn btn-outline-primary" href="/signup">Sign up</a>
+        </div>
+        <%
+             }  else {
+        %>
+        <a class="btn btn-outline-primary" href="/logout">Logout</a>
+        <%
+             }
+        %>
+    </div>
+
+    <form class="form-signin" method="POST" action="/login">
+
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Login Form</h1>
+        </div>
+
+        <div class="form-group">
+            <label for="inputUsername">Username</label>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required
+                autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password"
+                required>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
+
+</body>
+
+</html>

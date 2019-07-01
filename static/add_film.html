@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">Movie Network</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+
+            <a class='p-2 text-dark' href='/'>Home</a>
+            <%
+                if (context["is_publisher"] == "1") {
+            %>
+            <a class='p-2 text-dark' href='/films/add'>Add Film</a>
+            <%
+                }
+            %>
+            <a class='p-2 text-dark' href='/profile'>Profile</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="/logout">Logout</a>
+    </div>
+
+    <form class="form-signin" method="POST" action="/films">
+
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Add Film Form</h1>
+        </div>
+
+        <div class="form-group">
+            <label for="inputName">Name</label>
+            <input type="text" id="inputName" name="name" class="form-control" placeholder="Name" required autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPrice">Price</label>
+            <input type="number" id="inputPrice" name="price" class="form-control" placeholder="Price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDirector">Director</label>
+            <input type="text" id="inputDirector" name="director" class="form-control" placeholder="Director" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputLength">Length</label>
+            <input type="number" id="inputLength" name="length" class="form-control" placeholder="Length" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputYear">Year</label>
+            <input type="number" id="inputYear" name="year" class="form-control" placeholder="Year" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inputSummary">Summary</label>
+            <input type="text" id="inputSummary" name="summary" class="form-control" placeholder="Summary" required>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+    </form>
+
+</body>
+
+</html>
